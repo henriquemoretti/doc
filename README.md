@@ -66,7 +66,7 @@ Este comando irá iniciar todos os processos do Airflow novamente. Verifique ap�
 Para verificar se o Airflow foi iniciado corretamente, acesse [http://10.171.32.76:8080/home](http://10.171.32.76:8080/home) em seu navegador. Certifique-se de que a página está carregando corretamente.
 
 Exemplo da Tela de Início do Airflow:
-![Tela Inicial do Airflow](image.png)
+![Tela Inicial do Airflow](img/home_airflow.png)
 Caso seja necessário reprocessar, siga os passos abaixo:
 
 ### 1. Editar o Arquivo de Configuração
@@ -94,7 +94,7 @@ Volte à página inicial do Airflow no navegador e aguarde alguns minutos.
 Na interface do Airflow, encontre a tarefa desejada e clique no ícone de reprodução (play) ao lado dela.
 
 Exemplo da Interface do Airflow:
-![Interface do Airflow](image-1.png)
+![Interface do Airflow](img/play_dag.png)
 
 ### 5. Aguardar Finalização do Processo
 
