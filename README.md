@@ -112,10 +112,15 @@ Para facilitar a atualização da data no arquivo `protheus.py`, foi criado um s
 Para definir uma nova data, execute o seguinte comando:
 
 ```bash
-./.mudardataprotheus.sh 2017-01-01
+./.mudardataprotheus.sh novadata
 ```
 
-Substitua "2017-01-01" pela data desejada.
+Substitua "novadata" pela data desejada.
+
+Exemplo:
+```bash
+./.mudardataprotheus.sh 2017-01-01
+```
 
 ### 5. Retornar Data para "-3D"
 
