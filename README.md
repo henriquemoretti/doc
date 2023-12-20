@@ -94,7 +94,7 @@ Volte à página inicial do Airflow no navegador e aguarde alguns minutos.
 Na interface do Airflow, encontre a tarefa desejada e clique no ícone de reprodução (play) ao lado dela.
 
 Exemplo da Interface do Airflow:
-![Interface do Airflow](img/play_dag.png)
+![Play do Airflow](img/play_dag.png)
 
 ### 5. Aguardar Finalização do Processo
 
@@ -127,3 +127,4 @@ Após a conclusão do processo, retorne à edição do arquivo `protheus.py` e a
 ```bash
 ./.mudardataprotheus.sh -3D
 ```
+![Exemplo ao rodar script](img/modificar_data.png)
