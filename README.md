@@ -16,6 +16,7 @@ ssh useretl@10.171.32.76
 ```bash
 pkill -u useretl
 ```
+Você será desconectado, realize o login novamente para realizar as próximas ações
 
 ### 3. Limpar Arquivos Temporários
 
