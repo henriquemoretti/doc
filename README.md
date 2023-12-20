@@ -84,8 +84,6 @@ Dentro do arquivo `protheus.py`, localize a linha que contém a variável `date`
 date = '2017-01-01'
 ```
 
-Se possível, crie um script para realizar essa alteração automaticamente.
-
 ### 3. Retorno à Home do Airflow
 
 Volte à página inicial do Airflow no navegador e aguarde alguns minutos.
