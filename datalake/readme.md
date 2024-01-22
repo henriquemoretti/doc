@@ -4,7 +4,7 @@ Olá e seja bem-vindo à documentação do Datalake que estamos configurando par
 
 ## 1. Sistema Operacional
 
-Utilizaremos o Oracle Linux 9 na sua VM como sistema operacional base. Isso proporciona uma base estável e confiável para as operações do datalake.
+Utilizaremos o Oracle Linux 9 na VM como sistema operacional base. Isso proporciona uma base estável e confiável para as operações do datalake.
 
 ## 2. Armazenamento de Dados
 
@@ -28,12 +28,10 @@ Exploraremos diferentes algoritmos de compressão disponíveis para o formato Pa
 
 ## 7. Backup e Segurança
 
-Para backups regulares dos dados, sugerimos a utilização do `distcp` do Hadoop para cópias entre clusters. Além disso, é fundamental garantir boas práticas de segurança na VM, incluindo firewalls e autenticação forte.
+Para backups regulares dos dados, utilizaremos o `distcp` do Hadoop para cópias entre clusters. Além disso, é fundamental garantir boas práticas de segurança na VM, incluindo firewalls e autenticação forte.
 
 ## 8. Integração Spark e Hive
 
 Configuraremos a integração entre o Spark e o Hive, aproveitando o Spark SQL para facilitar operações SQL em dados distribuídos.
 
 Lembramos que a eficácia do datalake dependerá da correta configuração e ajuste dessas ferramentas de acordo com as necessidades específicas do seu ambiente e caso de uso.
-
-Estamos aqui para ajudar em qualquer dúvida ou ajuste necessário. Boa jornada no mundo dos dados!
