@@ -1,134 +1,39 @@
-# Documentação para Reinicialização do Ambiente Airflow
+# Documentação de Apresentação do Datalake
 
-Caso o Airflow não esteja sendo reconhecido no servidor indicado [http://10.171.32.76:8080/home](http://10.171.32.76:8080/home), siga os passos abaixo. Certifique-se de estar na pasta do usuário. Em caso de dúvidas se está na pasta certa
-```bash
-cd ~
-```
+Olá e seja bem-vindo à documentação do Datalake que estamos configurando para você! Aqui está uma visão geral das ferramentas e tecnologias escolhidas para construir um sistema robusto de gerenciamento de dados.
 
-### 1. Acessar o Servidor
+## 1. Sistema Operacional
 
-```bash
-ssh useretl@10.171.32.76
-```
+Utilizaremos o Oracle Linux 9 na sua VM como sistema operacional base. Isso proporciona uma base estável e confiável para as operações do datalake.
 
-### 2. Finalizar Processos do Usuário
+## 2. Armazenamento de Dados
 
-```bash
-pkill -u useretl
-```
-Você será desconectado, realize o login novamente para realizar as próximas ações
+O formato de armazenamento escolhido para dados relacionais será o **Parquet**. Este formato de coluna otimiza a leitura analítica e oferece uma excelente compressão para economia de espaço.
 
-### 3. Limpar Arquivos Temporários
+## 3. Processamento Distribuído
 
-```bash
-sudo rm -rf /tmp/*
-sudo rm -rf /var/log/*
-sudo rm -rf /var/cache/*
-sudo yum clean all
-sudo rm -rf nohup.out
-```
+Para realizar operações distribuídas nos dados, implementaremos o **Apache Spark**. Esta ferramenta é conhecida por sua eficiência no processamento distribuído em grandes conjuntos de dados.
 
-### 4. Comando de Limpeza Automática
+## 4. Consulta SQL
 
-Utilize o seguinte comando para realizar toda a limpeza automaticamente:
+Facilitaremos consultas SQL em grandes conjuntos de dados usando o **Apache Hive**. O Hive proporciona uma interface SQL familiar e é especialmente útil para dados armazenados no Hadoop.
 
-```bash
-limparlogs
-```
+## 5. Modelagem e Estrutura de Dados
 
-### 5. Iniciar Ambiente Virtual do Airflow
+Será importante pensar na organização das tabelas no Hive. Recomenda-se considerar a estratégia de particionamento para otimizar consultas e melhorar o desempenho.
 
-```bash
-af
-```
+## 6. Configurações de Compressão
 
-Após executar este comando, o prompt deve ser alterado para indicar que está no ambiente virtual do Airflow, como mostrado abaixo:
+Exploraremos diferentes algoritmos de compressão disponíveis para o formato Parquet, visando encontrar o equilíbrio ideal entre desempenho e economia de espaço.
 
-De:
-```bash
-[useretl@bh-pmo-etl ~]$
-```
+## 7. Backup e Segurança
 
-Para:
-```bash
-(airflow) [useretl@bh-pmo-etl ~]$
-```
+Para backups regulares dos dados, sugerimos a utilização do `distcp` do Hadoop para cópias entre clusters. Além disso, é fundamental garantir boas práticas de segurança na VM, incluindo firewalls e autenticação forte.
 
-### 6. Executar Processos do Airflow
+## 8. Integração Spark e Hive
 
-```bash
-saf
-```
+Configuraremos a integração entre o Spark e o Hive, aproveitando o Spark SQL para facilitar operações SQL em dados distribuídos.
 
-Este comando irá iniciar todos os processos do Airflow novamente. Verifique após 5 minutos se tudo está funcionando corretamente.
+Lembramos que a eficácia do datalake dependerá da correta configuração e ajuste dessas ferramentas de acordo com as necessidades específicas do seu ambiente e caso de uso.
 
-# Verificação do Status do Airflow
-
-Para verificar se o Airflow foi iniciado corretamente, acesse [http://10.171.32.76:8080/home](http://10.171.32.76:8080/home) em seu navegador. Certifique-se de que a página está carregando corretamente.
-
-Exemplo da Tela de Início do Airflow:
-![Tela Inicial do Airflow](img/home_airflow.png)
-Caso seja necessário reprocessar, siga os passos abaixo:
-
-### 1. Editar o Arquivo de Configuração
-
-```bash
-vim ~/airflow/dags/protheus.py
-```
-
-### 2. Localizar a Linha com a Data
-
-Dentro do arquivo `protheus.py`, localize a linha que contém a variável `date` com o valor "-3D". Modifique essa linha para definir a nova data desejada, por exemplo:
-
-```python
-date = '2017-01-01'
-```
-
-### 3. Retorno à Home do Airflow
-
-Volte à página inicial do Airflow no navegador e aguarde alguns minutos.
-
-### 4. Executar Processo no Airflow
-
-Na interface do Airflow, encontre a tarefa desejada e clique no ícone de reprodução (play) ao lado dela.
-
-Exemplo da Interface do Airflow:
-![Play do Airflow](img/play_dag.png)
-
-### 5. Aguardar Finalização do Processo
-
-Aguarde o término do processo. Este procedimento pode levar em média 12 horas.
-
-### 6. Retornar Data para "-3D"
-
-Após a conclusão do processo, retorne à edição do arquivo `protheus.py` e ajuste a data de volta para "-3D". Isso é importante para garantir a consistência nos processos futuros.
-
-# Atualização da Data no Arquivo Protheus
-
-Para facilitar a atualização da data no arquivo `protheus.py`, foi criado um script chamado `.mudardataprotheus.sh`. Siga os passos abaixo:
-
-### 1. Executar Script para Atualizar a Data
-
-Para definir uma nova data, execute o seguinte comando:
-
-```bash
-./.mudardataprotheus.sh novadata
-```
-
-Substitua "novadata" pela data desejada.
-
-Exemplo:
-```bash
-./.mudardataprotheus.sh 2017-01-01
-```
-
-### 5. Retornar Data para "-3D"
-
-Após a conclusão do processo, retorne à edição do arquivo `protheus.py` e ajuste a data de volta para "-3D".
-
-### Uso do Script para Mudança Automática de Data
-
-```bash
-./.mudardataprotheus.sh -3D
-```
-![Exemplo ao rodar script](img/modificar_data.png)
+Estamos aqui para ajudar em qualquer dúvida ou ajuste necessário. Boa jornada no mundo dos dados!
